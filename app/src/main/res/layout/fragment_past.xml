@@ -3,13 +3,13 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".team.TeamFragment">
+             tools:context=".match.pastmatch.PastFragment">
 
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_team"
+            android:id="@+id/rv_match_past"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/rv_team_item"
-    ></android.support.v7.widget.RecyclerView>
+            android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>

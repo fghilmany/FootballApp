@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.example.submission5.R
@@ -49,6 +50,8 @@ class MainActivity : AppCompatActivity(), MainView {
         rvleague.layoutManager = LinearLayoutManager(this)
         adapter = MainAdapter(leagues)
         rvleague.adapter = adapter
+
+        Log.e("cek api duolo", "${presenter.getLeague("4328")}")
 
 
 

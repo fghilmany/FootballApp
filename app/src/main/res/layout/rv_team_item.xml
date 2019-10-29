@@ -14,10 +14,10 @@
     <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-    android:padding="8dp">
+            android:padding="8dp">
 
         <ImageView
-                android:id="@+id/item_card_league"
+                android:id="@+id/iv_logo_team"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
@@ -27,40 +27,39 @@
                 android:layout_marginBottom="8dp" card_view:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
-                android:id="@+id/tv_league"
+                android:id="@+id/tv_team"
                 android:layout_width="wrap_content"
                 android:layout_height=  "wrap_content"
                 tools:text="Premier League"
-                android:layout_toEndOf="@+id/item_card_league"
+                android:layout_toEndOf="@+id/iv_logo_team"
                 android:textSize="16sp"
-                card_view:layout_constraintStart_toEndOf="@+id/item_card_league" android:layout_marginTop="8dp"
-                card_view:layout_constraintTop_toTopOf="@+id/item_card_league" android:layout_marginStart="16dp"/>
+                card_view:layout_constraintStart_toEndOf="@+id/iv_logo_team" android:layout_marginTop="8dp"
+                card_view:layout_constraintTop_toTopOf="@+id/iv_logo_team" android:layout_marginStart="16dp"/>
 
         <Button
-                android:id="@+id/btn_classement"
+                android:id="@+id/btn_detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_button_red"
-                android:text="Classement"
-                android:padding="4dp"
-                android:textSize="12sp"
-                card_view:layout_constraintBottom_toBottomOf="@+id/item_card_league" android:layout_marginTop="8dp"
-                card_view:layout_constraintTop_toBottomOf="@+id/tv_league"
-                card_view:layout_constraintVertical_bias="1.0"
-                android:layout_marginEnd="8dp" card_view:layout_constraintEnd_toStartOf="@+id/detail"/>
-
-        <Button
-                android:id="@+id/detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:textSize="12sp"
                 android:background="@drawable/bg_button_red"
                 android:text="Detail"
-                android:layout_marginEnd="8dp" card_view:layout_constraintEnd_toEndOf="parent"
-                card_view:layout_constraintBottom_toBottomOf="@+id/btn_classement"
-                card_view:layout_constraintTop_toTopOf="@+id/btn_classement"
-        />
+                android:textSize="12dp"
+                android:padding="4dp"
+                card_view:layout_constraintBottom_toBottomOf="@+id/iv_logo_team" android:layout_marginTop="8dp"
+                card_view:layout_constraintTop_toBottomOf="@+id/btn_player"
+                card_view:layout_constraintVertical_bias="1.0"
+                android:layout_marginEnd="8dp" card_view:layout_constraintEnd_toStartOf="@+id/btn_player"/>
+
+        <Button
+                android:id="@+id/btn_player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textSize="12dp"
+                android:background="@drawable/bg_button_red"
+                android:text="Player"
+                card_view:layout_constraintBottom_toBottomOf="@+id/btn_detail"
+                card_view:layout_constraintTop_toTopOf="@+id/btn_detail"
+                android:layout_marginEnd="8dp" card_view:layout_constraintEnd_toEndOf="parent"/>
 
     </android.support.constraint.ConstraintLayout>
 

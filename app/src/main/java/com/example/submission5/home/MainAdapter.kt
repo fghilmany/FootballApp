@@ -12,10 +12,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.submission5.R
+import com.example.submission5.classement.ClassementActivity
 import com.example.submission5.detail.DetailActivity
+import com.example.submission5.match.nextmatch.NextFragment
+import com.example.submission5.match.pastmatch.PastFragment
 import com.example.submission5.model.Main
+import com.example.submission5.team.TeamFragment
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 
 class MainAdapter(private val leagues:List<Main>)
     : RecyclerView.Adapter<LeagueViewHolder>(){
@@ -30,19 +35,7 @@ class MainAdapter(private val leagues:List<Main>)
     override fun onBindViewHolder(holder: LeagueViewHolder, position: Int) {
         holder.bindItem(leagues[position])
 
-        //push id ke next activity
-        holder.btnClassment.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "${leagues[holder.adapterPosition].idLeague}", Toast.LENGTH_SHORT).show()
-        }
-
-        holder.btnDetail.setOnClickListener {
-//            Toast.makeText(holder.itemView.context, "${leagues[holder.adapterPosition].idLeague}", Toast.LENGTH_SHORT).show()
-            val i = Intent(this@MainAdapter, DetailActivity::class.java)
-                Toast.makeText(holder.itemView.context, "${leagues[holder.adapterPosition].idLeague}", Toast.LENGTH_SHORT).show()
-
-        }
     }
-
 
 }
 
@@ -56,6 +49,19 @@ class LeagueViewHolder (view: View):RecyclerView.ViewHolder(view){
     fun bindItem(leagues:Main){
         Picasso.get().load(leagues.strBadgeLeague).fit().into(leagueBadge)
         leagueName.text = leagues.strLeague
+
+        btnDetail.setOnClickListener {
+            itemView.context.startActivity<DetailActivity>(
+                "idLeague" to leagues.idLeague
+            )
+            Toast.makeText(itemView.context, leagues.strLeague, Toast.LENGTH_SHORT).show()
+        }
+
+        btnClassment.setOnClickListener {
+            itemView.context.startActivity<ClassementActivity>(
+                "idLeague" to leagues.idLeague
+            )
+        }
 
 
     }

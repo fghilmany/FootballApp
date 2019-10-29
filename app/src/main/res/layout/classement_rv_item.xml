@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+    <TextView
+            android:id="@+id/tv_name_club"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            tools:text="Chelsea FC"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"/>
+
+    <TextView
+            android:id="@+id/tv_poin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            tools:text="40"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+    <TextView
+            android:id="@+id/tv_win"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            tools:text="24"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+    <TextView
+            android:id="@+id/tv_draw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            tools:text="3"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+    <TextView
+            android:id="@+id/tv_lose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            tools:text="7"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+    <TextView
+            android:id="@+id/tv_play"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            tools:text="10"
+            android:gravity="center"
+            android:textSize="16sp"/>
+
+</LinearLayout>
