@@ -43,4 +43,24 @@ object TheSportDBApi {
         return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/searchteams.php?t=" + league
         //https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t={query}
     }
+
+    fun getTeamDetail (league: String?):String{
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookupteam.php?id=" + league
+        //https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id={idTeam}
+    }
+
+    fun getPlayerDetail(league: String?):String{
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookupplayer.php?id=" + league
+        //https://www.thesportsdb.com/api/v1/json/1/lookupplayer.php?id={idPemain}
+    }
+
+    fun getMatchDetail (league: String?):String{
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookupevent.php?id=" + league
+        //https://www.thesportsdb.com/api/v1/json/1/lookupevent.php?id={idEvent}
+    }
+
+    fun getBadgeTeam (league: String?):String{
+        return BuildConfig.BASE_URL + "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/searchteams.php?t=" + league
+        //"/searchteams.php?t="
+    }
 }

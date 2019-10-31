@@ -4,16 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class Main (
 
-    //league
-    @SerializedName("idLeague")
-    var idLeague : String? = null,
-
-    @SerializedName("strBadge")
-    var strBadgeLeague : String? = null,
-
-    @SerializedName("strLeague")
-    var strLeague :String? = null,
-
     //Match
     @SerializedName("idEvent")
     var idEvent : String? = null,
@@ -32,6 +22,17 @@ data class Main (
 
     @SerializedName("dateEvent")
     var dateEvent : String? = null,
+
+    //league
+    @SerializedName("idLeague")
+    var idLeague : String? = null,
+
+    @SerializedName("strBadge")
+    var strBadgeLeague : String? = null,
+
+    @SerializedName("strLeague")
+    var strLeague :String? = null,
+
 
     //Classement
     @SerializedName("name")
@@ -70,7 +71,56 @@ data class Main (
     var playerName : String? = null,
 
     @SerializedName("strCutout")
-    var playerIcon : String? = null
+    var playerIcon : String? = null,
+
+    //detail team
+    //team name ada di list team
+    //team badge ada di list team,
+
+    @SerializedName("strDescriptionEN")
+    var descTeam : String? = null,
+
+    //detail player
+    @SerializedName("strFanart2")
+    var fanArt : String? = null,
+
+    //player name ada di player
+    @SerializedName("strPosition")
+    var playerPosition : String? = null,
+    //player team pakai yang di atas
+
+    /*@SerializedName("strTeam")
+    var playerTeam : String? = null*/
+
+    //desc pakai yang di atas
+
+//    @SerializedName("strDescriptionEN")
+//    var playerDesc : String? = null
+
+    //detail match
+    @SerializedName("strHomeFormation")
+    var strHomeFormation : String? = null,
+
+    @SerializedName("strAwayFormation")
+    var strAwayFormation : String? = null,
+
+    @SerializedName("strHomeGoalDetails")
+    var strHomeGoalDetails : String? = null,
+
+    @SerializedName("strAwayGoalDetails")
+    var strAwayGoalDetails : String? = null,
+
+    @SerializedName("strHomeYellowCards")
+    var strHomeYellowCards : String? = null,
+
+    @SerializedName("strAwayYellowCards")
+    var strAwayYellowCards : String? = null,
+
+    @SerializedName("strHomeRedCards")
+    var strHomeRedCards : String? = null,
+
+    @SerializedName("strAwayRedCards")
+    var strAwayRedCards : String? = null
 
 
 )

@@ -6,4 +6,5 @@ data class MainResponse (
     val table:List<Main>,
     val teams:List<Main>,
     val player:List<Main>,
-    val event:List<Main>)
+    val event:List<Main>,
+    val players:List<Main>)

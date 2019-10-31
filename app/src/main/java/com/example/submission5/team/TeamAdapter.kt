@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.submission5.R
 import com.example.submission5.model.Main
+import com.example.submission5.team.detail.DetailTeam
 import com.example.submission5.team.player.PlayerActivity
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.startActivity
@@ -42,6 +43,12 @@ class TeamViewHolder(view : View): RecyclerView.ViewHolder(view){
 
         btnPlayer.setOnClickListener {
             itemView.context.startActivity<PlayerActivity>(
+                "idTeam" to leagues.idTeam
+            )
+        }
+
+        btnDetail.setOnClickListener {
+            itemView.context.startActivity<DetailTeam>(
                 "idTeam" to leagues.idTeam
             )
         }

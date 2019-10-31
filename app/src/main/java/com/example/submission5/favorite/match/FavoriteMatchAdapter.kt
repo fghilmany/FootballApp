@@ -1,17 +1,15 @@
-package com.example.submission5.match
+package com.example.submission5.favorite.match
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.submission5.R
-import com.example.submission5.home.LeagueViewHolder
 import com.example.submission5.model.Main
 
-
-class MatchAdapter (private val events : List<Main>, private val listener:(Main)->Unit)
+class FavoriteMatchAdapter (private val events : List<FavoriteMatch>, private val listener:(FavoriteMatch)->Unit)
     : RecyclerView.Adapter<MatchViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
         return MatchViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.rv_match_item, parent, false))
@@ -33,15 +31,20 @@ class MatchViewHolder(view : View) : RecyclerView.ViewHolder(view) {
     private val awayScore : TextView = view.findViewById(R.id.tv_away_score)
     private val dateMatch : TextView = view.findViewById(R.id.tv_date_match)
 
-    fun bindItem (matches : Main, listener: (Main) -> Unit){
+    fun bindItem (matches : FavoriteMatch, listener: (FavoriteMatch) -> Unit){
 
-        homeName.text = matches.strHomeTeam
-        awayName.text = matches.strAwayTeam
-        homeScore.text = matches.intHomeScore.toString()
-        awayScore.text = matches.intAwayScore.toString()
-        dateMatch.text = matches.dateEvent
+        homeName.text = matches.nameHome
+        awayName.text = matches.nameAway
+        homeScore.text = matches.scoreHome
+        awayScore.text = matches.scoreAway
+        dateMatch.text = matches.dateMatch
 
-        if (matches.intHomeScore == null){
+        Log.e("cek tv nama","${matches.nameHome}")
+        Log.e("cek tv nama","${matches.idEvent}")
+        Log.e("cek tv nama","${matches.scoreHome}")
+        Log.e("cek tv nama","${matches.dateMatch}")
+
+        if (matches.scoreHome == null){
             homeScore.text = null
             awayScore.text = null
         }

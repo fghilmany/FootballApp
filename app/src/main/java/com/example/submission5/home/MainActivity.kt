@@ -38,10 +38,12 @@ class MainActivity : AppCompatActivity(), MainView {
 
         val idLeague = resources.getStringArray(R.array.league_id)
 
-        for (i in idLeague.indices){
-            presenter.getLeague("${idLeague[i]}")
+     /*   for (i in idLeague.indices){
+            presenter.getLeague(idLeague[i])
 //            Toast.makeText(applicationContext, "${idLeague[i]}", Toast.LENGTH_LONG).show()
-        }
+        }*/
+
+        presenter.getLeague("$idLeague")
 
 
 

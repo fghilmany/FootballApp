@@ -41,4 +41,34 @@ class TeamPresenter (
             }
         }
     }
+
+    fun getDetailTeams (league:String?) {
+        doAsync {
+            val data = gson.fromJson(
+                apiRepository
+                    .doRequest(TheSportDBApi.getTeamDetail(league)),
+                MainResponse::class.java
+            )
+
+            uiThread {
+                view.listTeam(data.teams)
+            }
+            Log.e("cek teams","${data.teams}")
+        }
+    }
+
+    fun getDetailPlayer(league: String?){
+        doAsync {
+            val data = gson.fromJson(
+                apiRepository
+                    .doRequest(TheSportDBApi.getPlayerDetail(league)),
+                MainResponse::class.java
+            )
+
+            uiThread {
+                view.listTeam(data.players)
+            }
+            Log.e("cek id player","${data.players}")
+        }
+    }
 }

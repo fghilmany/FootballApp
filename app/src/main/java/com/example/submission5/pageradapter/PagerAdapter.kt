@@ -1,4 +1,4 @@
-package com.example.submission5
+package com.example.submission5.pageradapter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager

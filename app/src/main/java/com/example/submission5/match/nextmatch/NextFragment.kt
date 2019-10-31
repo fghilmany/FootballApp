@@ -51,7 +51,9 @@ class NextFragment : Fragment(),MatchView {
         presenter = MatchPresenter(this, request, gson)
         presenter.getNextMatch(idMatch)
 
-        adapter = MatchAdapter(matches)
+        adapter = MatchAdapter(matches){
+
+        }
         val rvMatch = find<RecyclerView>(R.id.rv_match_next)
         rvMatch.layoutManager = LinearLayoutManager(activity)
         rvMatch.adapter = adapter
@@ -80,8 +82,8 @@ class NextFragment : Fragment(),MatchView {
             data[0].idLeague,
             data[0].strHomeTeam,
             data[0].strAwayTeam,
-            data[0].intHomeScore.toString(),
-            data[0].intAwayScore.toString(),
+            data[0].intHomeScore,
+            data[0].intAwayScore,
             data[0].dateEvent
 
         )
