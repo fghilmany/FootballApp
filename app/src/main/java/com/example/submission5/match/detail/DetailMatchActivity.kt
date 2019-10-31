@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.submission5.R
 import com.example.submission5.api.ApiRepository
 import com.example.submission5.favorite.match.FavoriteMatch
@@ -18,6 +19,7 @@ import com.example.submission5.model.Main
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail_match.*
+import org.jetbrains.anko.activityManager
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
@@ -91,9 +93,9 @@ class DetailMatchActivity : AppCompatActivity(), DetaiMatchView {
                     FavoriteMatch.SCORE_AWAY to item.intAwayScore,
                     FavoriteMatch.DATE_MATCH to item.dateEvent)
             }
-            Snackbar.make(view,"add to favorite", Snackbar.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"add to favorite",Toast.LENGTH_SHORT).show()
         }catch (e : SQLiteConstraintException){
-            Snackbar.make(view,e.localizedMessage, Snackbar.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,e.localizedMessage,Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -103,9 +105,9 @@ class DetailMatchActivity : AppCompatActivity(), DetaiMatchView {
                 delete(FavoriteMatch.TABLE_FAVORITE_MATCH, "ID_EVENT = {idMatch}",
                     "idMatch" to idMatch)
             }
-            Snackbar.make(view,"add to favorite", Snackbar.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,"remove from favorite",Toast.LENGTH_SHORT).show()
         }catch (e : SQLiteConstraintException){
-            Snackbar.make(view,e.localizedMessage, Snackbar.LENGTH_LONG).show()
+            Toast.makeText(applicationContext,e.localizedMessage,Toast.LENGTH_SHORT).show()
         }
     }
 

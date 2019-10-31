@@ -10,6 +10,7 @@ import com.example.submission5.api.ApiRepository
 import com.example.submission5.match.MatchAdapter
 import com.example.submission5.match.MatchPresenter
 import com.example.submission5.model.Main
+import com.example.submission5.model.Team
 import com.example.submission5.team.TeamPresenter
 import com.example.submission5.team.TeamView
 import com.google.gson.Gson
@@ -19,6 +20,10 @@ import org.jetbrains.anko.support.v4.find
 import java.nio.file.Files.find
 
 class PlayerActivity : AppCompatActivity(), TeamView {
+    override fun detailTeam(data: List<Team>) {
+
+    }
+
     override fun listTeam(data: List<Main>) {
         matches.clear()
         matches.addAll(data)

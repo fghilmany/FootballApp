@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.example.submission5.R
 import com.example.submission5.api.ApiRepository
 import com.example.submission5.model.Main
+import com.example.submission5.model.Team
 import com.example.submission5.team.TeamPresenter
 import com.example.submission5.team.TeamView
 import com.google.gson.Gson
@@ -16,6 +17,9 @@ import org.jetbrains.anko.find
 import org.w3c.dom.Text
 
 class DetailPlayer : AppCompatActivity(), TeamView {
+    override fun detailTeam(data: List<Team>) {
+
+    }
 
     private lateinit var presenter: TeamPresenter
     private lateinit var item : Main

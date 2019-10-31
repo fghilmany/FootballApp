@@ -15,10 +15,14 @@ import com.example.submission5.api.ApiRepository
 import com.example.submission5.match.MatchAdapter
 import com.example.submission5.match.MatchPresenter
 import com.example.submission5.model.Main
+import com.example.submission5.model.Team
 import com.google.gson.Gson
 import org.jetbrains.anko.support.v4.find
 
 class TeamFragment : Fragment(), TeamView {
+    override fun detailTeam(data: List<Team>) {
+
+    }
 
     private var matches : MutableList<Main> = mutableListOf()
     private lateinit var presenter : TeamPresenter
