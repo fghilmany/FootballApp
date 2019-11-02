@@ -1,9 +1,11 @@
 package com.example.submission5.home
 
+import android.content.Context
 import android.content.Intent
 import android.media.Image
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.submission5.LeaguesItem
 import com.example.submission5.R
 import com.example.submission5.classement.ClassementActivity
 import com.example.submission5.detail.DetailActivity
@@ -22,8 +25,9 @@ import com.squareup.picasso.Picasso
 import org.jetbrains.anko.find
 import org.jetbrains.anko.startActivity
 
-class MainAdapter(private val leagues:List<Main>)
-    : RecyclerView.Adapter<LeagueViewHolder>(){
+class MainAdapter(private val leagues:List<LeaguesItem>)
+    : RecyclerView.Adapter<MainAdapter.LeagueViewHolder>(){
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LeagueViewHolder {
         return LeagueViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.league_card_view_item, parent, false))
         //return LeagueViewHolder(view)
@@ -37,33 +41,37 @@ class MainAdapter(private val leagues:List<Main>)
 
     }
 
-}
+    class LeagueViewHolder (view: View):RecyclerView.ViewHolder(view){
 
-class LeagueViewHolder (view: View):RecyclerView.ViewHolder(view){
+        private val leagueBadge : ImageView = view.findViewById(R.id.item_card_league)
+        private val leagueName : TextView = view.findViewById(R.id.tv_league)
+        val btnClassment : Button = view.findViewById(R.id.btn_classement)
+        val btnDetail : Button = view.findViewById(R.id.detail)
 
-    private val leagueBadge : ImageView = view.findViewById(R.id.item_card_league)
-    private val leagueName : TextView = view.findViewById(R.id.tv_league)
-    val btnClassment : Button = view.findViewById(R.id.btn_classement)
-    val btnDetail : Button = view.findViewById(R.id.detail)
+        fun bindItem(leagues:LeaguesItem){
+            leagues.badgeLeague?.let { Picasso.get().load(it).fit().into(leagueBadge) }
+            leagueName.text = leagues.nameLeague
 
-    fun bindItem(leagues:Main){
-        Picasso.get().load(leagues.strBadgeLeague).fit().into(leagueBadge)
-        leagueName.text = leagues.strLeague
+            Log.e("cek init name","${leagues.nameLeague}")
 
-        btnDetail.setOnClickListener {
-            itemView.context.startActivity<DetailActivity>(
-                "idLeague" to leagues.idLeague
-            )
-            Toast.makeText(itemView.context, leagues.strLeague, Toast.LENGTH_SHORT).show()
+            btnDetail.setOnClickListener {
+                itemView.context.startActivity<DetailActivity>(
+                    "idLeague" to leagues.itemId
+                )
+                Toast.makeText(itemView.context, leagues.nameLeague, Toast.LENGTH_SHORT).show()
+            }
+
+            btnClassment.setOnClickListener {
+                itemView.context.startActivity<ClassementActivity>(
+                    "idLeague" to leagues.itemId
+                )
+            }
+
+
         }
-
-        btnClassment.setOnClickListener {
-            itemView.context.startActivity<ClassementActivity>(
-                "idLeague" to leagues.idLeague
-            )
-        }
-
 
     }
 
+
 }
+

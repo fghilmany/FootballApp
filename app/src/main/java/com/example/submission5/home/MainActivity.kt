@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.ProgressBar
 import android.widget.Toast
+import com.example.submission5.LeaguesItem
 import com.example.submission5.R
 import com.example.submission5.api.ApiRepository
 import com.example.submission5.utils.invisivle
@@ -15,69 +16,77 @@ import com.example.submission5.utils.visible
 import com.google.gson.Gson
 import org.jetbrains.anko.find
 
-class MainActivity : AppCompatActivity(), MainView {
+class MainActivity : AppCompatActivity() {
 
 
-    private var leagues : MutableList<Main> = mutableListOf()
-    private lateinit var presenter: MainPresenter
-    private lateinit var adapter: MainAdapter
-    private lateinit var idLeague : String
-    private lateinit var progressBar: ProgressBar
-    private lateinit var item : Main
+    private var leagues : MutableList<LeaguesItem> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-        progressBar = findViewById(R.id.progress_bar)
-
+/*
         val request = ApiRepository()
         val gson = Gson()
         presenter = MainPresenter(this, request, gson)
 
         val idLeague = resources.getStringArray(R.array.league_id)
+        //val idLeague = Leagues.listData
 
-     /*   for (i in idLeague.indices){
-            presenter.getLeague(idLeague[i])
-//            Toast.makeText(applicationContext, "${idLeague[i]}", Toast.LENGTH_LONG).show()
+        for (i in idLeague.indices){
+            leagues.add(Main(idLeague[i]))
+            presenter.getLeague(leagues.toString())
+            Toast.makeText(applicationContext, "${leagues}", Toast.LENGTH_LONG).show()
+        }
+        //presenter.getLeague(idLeague[3])
+
+        //presenter.getLeague(Leagues.listData.toString())
+        Log.e("cek id league","${leagues}")
+
+*/
+
+        val rvleague = find<RecyclerView>(R.id.rv_league_list)
+        initData()
+        /*val idLeague = resources.getStringArray(R.array.league_id)
+        val nameLeague = resources.getStringArray(R.array.club_name)
+        val leagueaBadge = resources.obtainTypedArray(R.array.club_image)
+        leagues.clear()
+        Log.e("cek id ","$idLeague")
+        for (i in idLeague.indices){
+            leagues.add(LeaguesItem(
+                idLeague[i],
+                nameLeague[i],
+                leagueaBadge.getResourceId(i,0))
+            )
+            Log.e("cek id ","$idLeague")
+
+            leagueaBadge.recycle()
         }*/
 
-        presenter.getLeague("$idLeague")
-
-
-
-        var rvleague = find<RecyclerView>(R.id.rv_league_list)
-
         rvleague.layoutManager = LinearLayoutManager(this)
-        adapter = MainAdapter(leagues)
+        /*adapter = MainAdapter(this,leagues)
         rvleague.adapter = adapter
-
-        Log.e("cek api duolo", "${presenter.getLeague("4328")}")
-
-
-
-    }
-
-    override fun showLoading() {
-        progressBar.visible()
-    }
-
-    override fun hideLoading() {
-        progressBar.invisivle()
+*/      rvleague.adapter = MainAdapter( leagues)
+        Log.e("cek rv","$rvleague")
+        //Log.e("cek init ","${initData()}")
 
     }
 
-    override fun showLeague(data: List<Main>) {
+    fun initData(){
+        val idLeague = resources.getStringArray(R.array.league_id)
+        val nameLeague = resources.getStringArray(R.array.club_name)
+        val leagueaBadge = resources.obtainTypedArray(R.array.club_image)
         leagues.clear()
-        leagues.addAll(data)
-        adapter.notifyDataSetChanged()
+        for (i in idLeague.indices){
+            leagues.add(LeaguesItem(
+                idLeague[i],
+                nameLeague[i],
+                leagueaBadge.getResourceId(i,0))
+                )
+            Log.e("cek id ","$idLeague")
 
-        item = Main(
-            data[0].idLeague,
-            data[0].strBadgeLeague,
-            data[0].strLeague
-        )
+            //leagueaBadge.recycle()
+        }
 
     }
+
 }
